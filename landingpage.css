@@ -16,7 +16,10 @@ body{
     overflow: hidden;
 }
 .heading h1{
-    color:
+
+    padding: 2px 0;
+    float:none;
+    color:rgb(136, 6, 132);
     font-size:150px;
     text-align: center;
     font-family: sans-serif;
@@ -27,7 +30,14 @@ body{
     position: relative;
 }
 .para p{
-  color: yellow;
+ float: right;
+  color: rgb(253, 236, 6);
   font-size: large;
   font-weight:normal;
+  font-style: italic;
+  font-variant: small-caps;
+}
+.heading .para p  span{
+    position: relative;
+    display: inline-block;
 }

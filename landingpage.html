@@ -12,8 +12,44 @@
         <h1>ANIMAL DONATION</h1>
     
         <div class="para">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas laborum eum illum reiciendis inventore quia alias enim praesentium quisquam atque hic, amet harum consequuntur nobis dolores ullam autem voluptatibus cum. Ratione quod est labore commodi voluptatum! Veniam doloremque ut repudiandae quisquam sequi vel alias impedit, architecto maiores numquam fugit! Ipsum nemo voluptates sit architecto tempore corporis quibusdam consequatur laborum id, suscipit amet impedit, quae recusandae doloremque expedita reprehenderit aliquam mollitia aliquid magni pariatur laudantium. Qui numquam aut vero aliquam alias necessitatibus, beatae nulla, tenetur vitae fuga iure culpa perferendis? Autem eaque aspernatur repudiandae odio et, labore fugit quas quibusdam? Consequuntur?</p>
+            <p class-="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas laborum eum illum reiciendis inventore quia alias enim praesentium quisquam atque hic, amet harum consequuntur nobis dolores ullam autem voluptatibus cum. Ratione quod est labore commodi voluptatum! Veniam doloremque ut repudiandae quisquam sequi vel alias impedit, architecto maiores numquam fugit! Ipsum nemo voluptates sit architecto tempore corporis quibusdam consequatur laborum id, suscipit amet impedit, quae recusandae doloremque expedita reprehenderit aliquam mollitia aliquid magni pariatur laudantium. Qui numquam aut vero aliquam alias necessitatibus, beatae nulla, tenetur vitae fuga iure culpa perferendis? Autem eaque aspernatur repudiandae odio et, labore fugit quas quibusdam? Consequuntur?</p>
         </div>
     </div>
+    <script src="anime.min.js"></script>
+   <script>
+    // now split into letters 
+    const text=document.querySelector('p');
+    text.innerHTML=text.textContent.replace(/\S/g, "<span>$&</span>")
+    const animation=anime.timeline({targets:'p span',
+    easeing:'easeInOutExpo',
+    loop:true,
+
+    });
+    animation
+    .add({
+        rotate:function(){
+            return anime.random(-360,360)
+        },
+        translateX:function(){
+            return anime.random(-500,500)
+        },
+        translateY:function(){
+            return anime.random(-500,500)
+        },
+        duration:5000,
+        delay:anime.stagger(20),
+    })
+    .add({
+        rotate:0,
+        
+        translateX:0,
+        
+        translateY:0,
+        
+        duration:5000,
+        delay:anime.stagger(20),
+    })
+   </script>
+    
 </body>
 </html>

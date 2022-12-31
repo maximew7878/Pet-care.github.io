@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(dog2.jpg);
+    background-size: cover;
+    
+}
+.heading{
+    position: relative;
+    overflow: hidden;
+}
+.heading h1{
+    color:
+    font-size:150px;
+    text-align: center;
+    font-family: sans-serif;
+   
+}
+.para{
+     margin: 10px 10px;
+    position: relative;
+}
+.para p{
+  color: yellow;
+  font-size: large;
+  font-weight:normal;
+}

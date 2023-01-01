@@ -8,12 +8,15 @@ body {
     width: 100vw;
     min-height: 100vh;
     overflow-x: hidden;
+    scroll-behavior: smooth;
+    transition: 0.5s;
 }
 
 ::-webkit-scrollbar {
     display: none;
 }
 
+/* navigation bar  */
 .nav {
     position: fixed;
     left: 10px;
@@ -36,11 +39,15 @@ body {
     border-radius: 50%;
     text-align: center;
 }
+.nav li:hover {
+    background: #555;
+}
 
 .nav a {
     color: white;
 }
 
+/* animal Donation */
 .header {
     height: 100vh;
     width: 100vw;
@@ -50,10 +57,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
-@media screen and (max-width :500px) {
+@media screen and (max-width: 500px) {
     .header {
         background: url(dog2.jpg);
         background-size: 100%;
@@ -61,7 +67,7 @@ body {
     }
 }
 
-@media screen and (max-width :700px) and (min-width:500px) {
+@media screen and (max-width: 700px) and (min-width: 500px) {
     .header {
         background-position-x: -200px;
         background-repeat: no-repeat;
@@ -69,14 +75,15 @@ body {
 }
 
 .header h1 {
-
     font-size: 120px;
     margin-left: 55px;
     color: rgb(0, 0, 0);
     text-shadow: 0 0 4px white;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     font-stretch: ultra-expanded;
 }
+
+/* about us  */
 
 .aboutus {
     position: relative;
@@ -86,24 +93,22 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    min-height: 50vh;
+    min-height: 5vh;
 }
 
 .aboutus h1 {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: "Times New Roman", Times, serif;
     font-size: 50px;
     font-weight: bold;
     font-stretch: expanded;
 }
 
+/* about us quote pink wala */
 .aboutus .para .blockquote {
-
     background-color: azure;
     border: 2px solid rgba(0, 255, 255, 0.16);
     box-sizing: border-box;
 }
-
-
 
 .aboutus .para .blockquote--bordered {
     border-left-width: 10px;
@@ -111,7 +116,7 @@ body {
 }
 
 .blockquote--quoted::before {
-    content: \201c;
+    content: "\201c";
     font-size: 100px;
     display: block;
 }
@@ -124,11 +129,15 @@ body {
     content: "\2014\0020";
 }
 
+/* about us para */
+
 .aboutus .para p {
-    /* width: 50vw; */
-    margin-top: 10px;
-    padding: 10px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 45vw;
+    padding: 5px;
+    color: rgb(231, 17, 131);
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    font-size: 25px;
+    font-weight: bold;
     font-style: italic;
 }
 
@@ -165,14 +174,18 @@ body {
     background: dodgerblue;
 }
 
+/* about us text  */
 .text p {
-    margin: 50px;
+    /* margin: 5px; */
     width: 50vw;
     margin-top: 10px;
     padding: 10px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+    color: rgb(113, 163, 12);
+    font-weight: bold;
     font-style: italic;
-
+    font-size: 22px;
 }
 
 .text {
@@ -207,14 +220,15 @@ body {
     background: dodgerblue;
 }
 
-.info p {
+/* about us info  */
 
+.info p {
     width: 50vw;
     /* margin-top: 10px; */
     padding: 10px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     font-style: italic;
-
 }
 
 .info {
@@ -249,27 +263,42 @@ body {
     border-radius: 40px;
     background: dodgerblue;
 }
+/* how we work */
+.header2 {
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px black;
+    box-sizing: border-box;
+    background: linear-gradient(
+        to bottom right,
+        darkturquoise,
+        royalblue,
+        darkblue
+    );
+    color: white;
 
-p span {
-
-    color: rgb(231, 17, 131);
-    ;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+}
+.header2 h3 {
+    text-align: center;
+    font-size: 50px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-stretch: extra-expanded;
+}
+.work {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+.work p {
+    padding: 10px;
+    margin: 5px;
+    width: 50vw;
     font-size: 20px;
-    font-weight: bold;
-    font-style: normal;
-}
-
-.para p {
-    color: rgb(231, 17, 131);
-    font-size: 40px;
-    font-weight: bold;
-    font-style: italic;
-}
-
-.text p {
-    margin-top: 50px;
-    color: rgb(113, 163, 12);
-    font-weight: bold;
-    font-size: 35px;
-    ;
 }

@@ -68,8 +68,7 @@ const clickHandler = () => {
     }
 
     // storing in firestore
-    db.collection(state).add( {
+    db.collection(state).add({
         Name: name,
-        
-    })
+    });
 };

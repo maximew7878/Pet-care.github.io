@@ -69,6 +69,7 @@ body {
 }
 
 .header h1 {
+
     font-size: 120px;
     margin-left: 55px;
     color: rgb(0, 0, 0);
@@ -95,8 +96,36 @@ body {
     font-stretch: expanded;
 }
 
+.aboutus .para .blockquote {
+
+    background-color: azure;
+    border: 2px solid rgba(0, 255, 255, 0.16);
+    box-sizing: border-box;
+}
+
+
+
+.aboutus .para .blockquote--bordered {
+    border-left-width: 10px;
+    z-index: -1;
+}
+
+.blockquote--quoted::before {
+    content: \201c;
+    font-size: 100px;
+    display: block;
+}
+
+.aboutus .para .blockquote__text--author {
+    text-align: right;
+}
+
+.blockquote__text--author::before {
+    content: "\2014\0020";
+}
+
 .aboutus .para p {
-    width: 50vw;
+    /* width: 50vw; */
     margin-top: 10px;
     padding: 10px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -122,7 +151,7 @@ body {
 }
 
 .aboutus .para .image:hover {
-    transform: skew(-2deg) translateX(1vw);
+    transform: skew(-2deg);
 }
 
 .aboutus .para .backdrop {
@@ -134,4 +163,113 @@ body {
     right: 1vw;
     border-radius: 40px;
     background: dodgerblue;
+}
+
+.text p {
+    margin: 50px;
+    width: 50vw;
+    margin-top: 10px;
+    padding: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: italic;
+
+}
+
+.text {
+    display: flex;
+    width: 95vw;
+    height: 35vh;
+    align-items: flex-start;
+}
+
+.aboutus .text .image {
+    width: 350px;
+    height: 236px;
+    border-radius: 40px;
+    transform: skew(10deg);
+    background: url(cat2.jpg);
+    border: 1px solid black;
+    background-size: cover;
+}
+
+.aboutus .text .image:hover {
+    transform: skew(-2deg);
+}
+
+.aboutus .text .backdrop {
+    width: 350px;
+    height: 236px;
+    position: absolute;
+    transform: skew(-2deg);
+    z-index: -1;
+    left: 53.5vw;
+    border-radius: 40px;
+    background: dodgerblue;
+}
+
+.info p {
+
+    width: 50vw;
+    /* margin-top: 10px; */
+    padding: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: italic;
+
+}
+
+.info {
+    display: flex;
+    width: 95vw;
+    justify-content: space-between;
+    height: 35vh;
+    align-items: flex-start;
+}
+
+.aboutus .info .image {
+    width: 350px;
+    height: 236px;
+    border-radius: 40px;
+    transform: skew(10deg);
+    background: url(cat3.jpg);
+    border: 1px solid black;
+    background-size: cover;
+}
+
+.aboutus .info .image:hover {
+    transform: skew(-2deg);
+}
+
+.aboutus .info .backdrop {
+    width: 350px;
+    height: 236px;
+    position: absolute;
+    transform: skew(-2deg);
+    z-index: -1;
+    right: 1vw;
+    border-radius: 40px;
+    background: dodgerblue;
+}
+
+p span {
+
+    color: rgb(231, 17, 131);
+    ;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.para p {
+    color: rgb(231, 17, 131);
+    font-size: 40px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.text p {
+    margin-top: 50px;
+    color: rgb(113, 163, 12);
+    font-weight: bold;
+    font-size: 35px;
+    ;
 }

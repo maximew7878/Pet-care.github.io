@@ -7,7 +7,13 @@
 body {
     width: 100vw;
     min-height: 100vh;
+    overflow-x: hidden;
 
+
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 .nav {
@@ -45,22 +51,91 @@ body {
     background-size: cover;
     background-position-y: -100px;
     display: flex;
+    flex-direction: column;
     align-items: center;
 
 }
 
-@media screen and (max-width:464px) {
+@media screen and (max-width :500px) {
     .header {
         background: url(dog2.jpg);
-        background-size: 100vw 100vh;
-        background-position-y: 0px;
+        background-size: 100%;
+        background-position-x: 0px;
+
+    }
+}
+
+@media screen and (max-width :700px) and (min-width:500px) {
+    .header {
+        background-position-x: -200px;
+        background-repeat: no-repeat;
     }
 }
 
 .header h1 {
-    font-size: 60px;
+    font-size: 120px;
     margin-left: 55px;
-    color: azure;
-    text-shadow: 0 0 4px black;
+    color: rgb(0, 0, 0);
+    text-shadow: 0 0 4px white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-stretch: ultra-expanded;
+
+}
+
+.aboutus {
+    position: relative;
+    padding: 50px;
+    margin: 5px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 50vh;
+
+
+}
+
+
+.aboutus h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+    font-weight: bold;
+    font-stretch: expanded;
+}
+
+.aboutus .para p {
+    width: 50vw;
+    margin-top: 10px;
+    padding: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: italic;
+
+}
+
+.para {
+    display: flex;
+    justify-content: space-between;
+    width: 95vw;
+}
+
+
+
+.aboutus .para .image {
+
+    width: 350px;
+    border-radius: 40px;
+    transform: skew(10deg)
+}
+
+.aboutus .para .image::after {
+    content: " ";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: dodgerblue;
+    bottom: 0;
+    left: 0;
+
+
 
 }

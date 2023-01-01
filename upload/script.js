@@ -35,40 +35,54 @@ const clickHandler = () => {
     var contact = document.getElementById("contact").value;
     var address = document.getElementById("address").value;
     var state = document.getElementById("state").value;
-    var files = document.getElementById("photo").files;
+    var files = document.getElementById("photo").files[0];
 
-    //storing in fire storage
+    //adding progress bar
     document.getElementById(
         "form"
     ).innerHTML += ` <progress value="0" id="progress" ></progress>`;
 
-    for (var i of files) {
-        let storageRef = firebase.storage().ref(`${name}/ ${i.name}`);
-        let uploadTask = storageRef.put(i);
-        var URL;
-        //add upload progress bar
-
-        uploadTask.on(
-            "state_changed",
-            (snapshot) => {
-                var percent = snapshot.bytesTransferred / snapshot.totalBytes;
-                document.getElementById(`progress`).value = percent;
-            },
-            (err) => {
-                console.log(err);
-                document.getElementById("progress").classList.add("hidden");
-                return;
-            },
-            () => {
-                uploadTask.snapshot.ref.getDownloadURL().then((url) => {
-                    URL = url;
-                });
-            }
-        );
-    }
-
-    // storing in firestore
-    db.collection(state).add({
+    //storing in fire storage
+    let storageRef = firebase.storage().ref(`${name}/ ${files.name}`);
+    let uploadTask = storageRef.put(files);
+    const data = {
         Name: name,
-    });
+        Email: email,
+        Contact: contact,
+        Address: address,
+        URL: "",
+    };
+
+    //change value of progressbar
+    uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+            var percent = snapshot.bytesTransferred / snapshot.totalBytes;
+            document.getElementById(`progress`).value = percent;
+        },
+        (err) => {
+            console.log(err); //throw err
+            document.getElementById("progress").classList.add("hidden");
+            return;
+        },
+        () => {
+            uploadTask.snapshot.ref.getDownloadURL().then((url) => {
+                data.URL = url;
+                storeindatabase(data);
+            });
+        }
+    );
+
+    // storing in firestore;
+
+    const storeindatabase = (data) => {
+        db.collection(state)
+            .add(data)
+            .then((docRef) => {
+                alert("Data added successfully", docRef);
+            })
+            .catch((err) => {
+                alert("Unsuccessful in adding Data, error: ", err);
+            });
+    };
 };

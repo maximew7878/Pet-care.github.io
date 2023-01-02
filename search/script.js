@@ -1,4 +1,61 @@
+// All variables
 const body = document.querySelector("body");
+let present = {
+    form: true,
+    container: false,
+};
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCRX2RfoyEgTcxxE1iABlsF-nx4EIjeMGg",
+    authDomain: "animaldonation-83efe.firebaseapp.com",
+    projectId: "animaldonation-83efe",
+    storageBucket: "animaldonation-83efe.appspot.com",
+    messagingSenderId: "331565292523",
+    appId: "1:331565292523:web:cf2fc61e5e4bf7ed80d7ae",
+};
+
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+const search = () => {
+    const value = document.getElementById("search").value;
+    let allobjects;
+    body.removeChild("")
+    const docRef = db.collection(value);
+    let output = `<div class="container2">`;
+    const post = (obj) => {
+        return `<div class="post">
+                <img src="${obj.URL}" alt="no photo" id="photo" />
+                <div class="hidden" id="name">Name : ${obj.Name}</div>
+                <div class="hidden" id="info">
+                    <div id="email">
+                        <b>Email:</b> ${obj.Email}<br />
+                        <b>Contact:</b><br />
+                        ${obj.Contact}
+                    </div>
+                    <div id="address">
+                        <b>Address:</b><br />
+                        ${obj.Address}
+                    </div>
+                </div>
+                <button id="change" onclick="togglephoto()">View photo</button>
+            </div>`;
+    };
+
+    docRef
+        .get()
+        .then((doc) => {
+            allobjects = doc.docs.map((items) => items.data());
+            allobjects.map((item) => {
+                output += post(item);
+            });
+            output += `</div>`;
+            body.innerHTML += output;
+        })
+        .catch((err) => {
+            console.log("error:", err);
+        });
+};
 
 const nav = () => {
     return `<div class="nav">
@@ -25,22 +82,28 @@ const form = () => {
     return `<div class="container">
             <input id="search" type="text" placeholder="Search for the State" />
             <div class="button">
-                <button id="btn"><i class="fa-solid fa-search"></i></button>
+                <button id="btn" onclick="search()"><i class="fa-solid fa-search"></i></button>
             </div>
         </div>  
-        <div class="post"><img src="post.svg" /></div>`;
+        <div class="svgs"><img src="post.svg" /></div>`;
 };
 body.innerHTML += nav();
+body.innerHTML += form();
+
 // document.querySelector("body").innerHTML = form;
 
 // document.getElementById("btn").addEventListener("click", () => {});
 
 // document.getElementById("search").addEventListener("change", (event) => {});
 
-document.getElementById("photo").addEventListener("click", () => {
-    document.getElementById("name").classList.remove("hidden");
-    document.getElementById("email").classList.remove("hidden");
-    document.getElementById("contact").classList.remove("hidden");
-    document.getElementById("address").classList.remove("hidden");
-    document.getElementById("photo").classList.add("hidden");
-});
+const togglephoto = () => {
+    document.getElementById("photo").classList.remove("hidden");
+    document.getElementById("name").classList.add("hidden");
+    document.getElementById("info").classList.add("hidden");
+};
+
+// document.getElementById("photo").addEventListener("click", () => {
+//     document.getElementById("photo").classList.add("hidden");
+//     document.getElementById("name").classList.remove("hidden");
+//     document.getElementById("info").classList.remove("hidden");
+// });

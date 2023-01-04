@@ -1,48 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <link rel="stylesheet" href="style.css" />
-    </head>
 
-    <body>
-        <form class="container" id="form">
-            <h1>Give Infomation</h1>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
 
-            <hr />
-            <br />
-            <label>Name:</label>
-            <input type="text" placeholder="Enter Your Name" id="name" />
-            <br />
-            <label>Email:</label>
-            <input type="email" placeholder="Enter Your Email" id="email" />
-            <br />
-            <label>Number:</label>
-            <input type="number" placeholder="Enter Contact No" id="contact" />
-            <br />
-            <label>Full Address:</label>
-            <textarea
-                type="Address"
-                placeholder="Enter Your Address"
-                id="address"
-            ></textarea>
-            <br />
-            <label>State:</label
-            ><select id="state"></select>
-            <br />
-            <label>Photos:</label>
-            <input type="file" id="photo" accept="image/*" />
-            <button id="btn" onclick="clickHandler()">Submit</button>
-            <br />
-        </form>
+<body>
+    <form class="container" id="form">
+        <h1>Give Infomation</h1>
 
-        <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-storage-compat.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
-        <script src="script.js"></script>
-    </body>
+        <hr />
+        <br />
+        <label>Name:</label>
+        <input type="text" placeholder="Enter Your Name" id="name" />
+        <br />
+        <label>Email:</label>
+        <input type="email" placeholder="Enter Your Email" id="email" />
+        <br />
+        <label>Number:</label>
+        <input type="number" placeholder="Enter Contact No" id="contact" />
+        <br />
+        <label>Full Address:</label>
+        <textarea type="Address" placeholder="Enter Your Address" id="address"></textarea>
+        <br />
+        <label>State:</label><select id="state"> </select>
+        <br />
+        <label>Photos:</label>
+        <input type="file" id="photo" accept="image/*" />
+        <button id="btn" onclick="clickHandler()">Submit</button>
+        <br />
+    </form>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+    <script src="script.js"></script>
+</body>
+
 </html>

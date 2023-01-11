@@ -85,7 +85,7 @@ const nav = () => {
                 ></a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                <a href="../contactus/index.html"><i class="fa fa-phone" aria-hidden="true"></i></a>
             </li>
         </div>`;
 };

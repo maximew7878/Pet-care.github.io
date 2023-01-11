@@ -20,7 +20,14 @@ const db = firebase.firestore();
 const search = () => {
     const value = document.getElementById("search").value;
     let allobjects;
-    body.removeChild("")
+    document
+        .getElementsByTagName("body")[0]
+        .removeChild(document.querySelector(".container"));
+    document
+        .getElementsByTagName("body")[0]
+        .removeChild(document.querySelector(".svgs"));
+    present.form = false;
+    present.container = true;
     const docRef = db.collection(value);
     let output = `<div class="container2">`;
     const post = (obj) => {
@@ -51,6 +58,11 @@ const search = () => {
             });
             output += `</div>`;
             body.innerHTML += output;
+            document.getElementById("photo").addEventListener("click", () => {
+                document.getElementById("photo").classList.add("hidden");
+                document.getElementById("name").classList.remove("hidden");
+                document.getElementById("info").classList.remove("hidden");
+            });
         })
         .catch((err) => {
             console.log("error:", err);
@@ -90,20 +102,8 @@ const form = () => {
 body.innerHTML += nav();
 body.innerHTML += form();
 
-// document.querySelector("body").innerHTML = form;
-
-// document.getElementById("btn").addEventListener("click", () => {});
-
-// document.getElementById("search").addEventListener("change", (event) => {});
-
 const togglephoto = () => {
     document.getElementById("photo").classList.remove("hidden");
     document.getElementById("name").classList.add("hidden");
     document.getElementById("info").classList.add("hidden");
 };
-
-// document.getElementById("photo").addEventListener("click", () => {
-//     document.getElementById("photo").classList.add("hidden");
-//     document.getElementById("name").classList.remove("hidden");
-//     document.getElementById("info").classList.remove("hidden");
-// });

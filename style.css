@@ -1,15 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;1,100;1,200&display=swap');
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.5s;
 }
 
 body {
     width: 100vw;
-    min-height: 100vh;
-    overflow-x: hidden;
+    height: 100vh;
     scroll-behavior: smooth;
-    transition: 0.5s;
+    /* background: linear-gradient(to bottom, orange, chocolate); */
+    background: black;
+    color: white;
+    overflow-x: hidden;
+    background: url('./photos/background.jpg');
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 ::-webkit-scrollbar {
@@ -39,6 +49,7 @@ body {
     border-radius: 50%;
     text-align: center;
 }
+
 .nav li:hover {
     background: #555;
 }
@@ -47,265 +58,160 @@ body {
     color: white;
 }
 
-/* animal Donation */
+/* landing image code done  */
+
 .header {
-    height: 100vh;
     width: 100vw;
-    background: url(dog1.jpg);
+    height: 100vh;
+    position: relative;
+}
+
+.header .image {
+    width: 94%;
+    height: 94%;
+    background: url('./photos/dog1.jpg');
     background-size: cover;
-    background-position-y: -100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    position: absolute;
+    top: 3vh;
+    left: 3vw;
+    border-radius: 30px;
 }
 
-@media screen and (max-width: 500px) {
-    .header {
-        background: url(dog2.jpg);
-        background-size: 100%;
-        background-position-x: 0px;
-    }
+.header .image:before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgb(0, 0, 0, 0.5);
+    border-radius: 30px;
 }
 
-@media screen and (max-width: 700px) and (min-width: 500px) {
-    .header {
-        background-position-x: -200px;
-        background-repeat: no-repeat;
-    }
+.header .image:hover::before {
+    background: rgb(0, 0, 0, 0.7);
+}
+
+.header h1:hover .image:before {
+    background: rgb(0, 0, 0, 0.7);
+}
+
+.header h1:hover+.image:before {
+    background: rgb(0, 0, 0, 0.7);
 }
 
 .header h1 {
+    position: absolute;
+    top: 25%;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 120px;
-    margin-left: 55px;
-    color: rgb(0, 0, 0);
+    color: white;
     text-shadow: 0 0 4px white;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     font-stretch: ultra-expanded;
 }
 
+@media screen and (max-width: 539px) {
+    .header .image {
+        background: url('./photos/dog2.jpg');
+        background-size: auto 100%;
+    }
+
+    .header h1 {
+        font-size: 60px;
+    }
+}
+
 /* about us  */
 
 .aboutus {
-    position: relative;
-    padding: 50px;
-    margin: 5px;
-    justify-content: center;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    min-height: 5vh;
+    gap: 50px;
+    margin: 30px 50px;
 }
+
 
 .aboutus h1 {
     font-family: "Times New Roman", Times, serif;
-    font-size: 50px;
-    font-weight: bold;
-    font-stretch: expanded;
+    font-size: 60px;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 15px;
 }
 
-/* about us quote pink wala */
-.aboutus .para .blockquote {
-    background-color: azure;
-    border: 2px solid rgba(0, 255, 255, 0.16);
-    box-sizing: border-box;
-}
-
-.aboutus .para .blockquote--bordered {
-    border-left-width: 10px;
-    z-index: -1;
-}
-
-.blockquote--quoted::before {
-    content: "\201c";
-    font-size: 100px;
-    display: block;
-}
-
-.aboutus .para .blockquote__text--author {
-    text-align: right;
-}
-
-.blockquote__text--author::before {
-    content: "\2014\0020";
-}
-
-/* about us para */
-
-.aboutus .para p {
-    width: 45vw;
-    padding: 5px;
-    color: rgb(231, 17, 131);
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    font-size: 25px;
-    font-weight: bold;
-    font-style: italic;
-}
-
-.para {
-    display: flex;
-    justify-content: space-between;
-    width: 95vw;
-    height: 35vh;
-    align-items: flex-start;
-}
-
-.aboutus .para .image {
-    width: 350px;
-    height: 236px;
-    border-radius: 40px;
-    transform: skew(10deg);
-    background: url(cat1.jpg);
-    border: 1px solid black;
-    background-size: cover;
-}
-
-.aboutus .para .image:hover {
-    transform: skew(-2deg);
-}
-
-.aboutus .para .backdrop {
-    width: 350px;
-    height: 236px;
-    position: absolute;
-    transform: skew(-2deg);
-    z-index: -1;
-    right: 1vw;
-    border-radius: 40px;
-    background: dodgerblue;
-}
-
-/* about us text  */
-.text p {
-    /* margin: 5px; */
-    width: 50vw;
-    margin-top: 10px;
-    padding: 10px;
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-        "Lucida Sans", Arial, sans-serif;
-    color: rgb(113, 163, 12);
-    font-weight: bold;
-    font-style: italic;
-    font-size: 22px;
-}
-
-.text {
-    display: flex;
-    width: 95vw;
-    height: 35vh;
-    align-items: flex-start;
-}
-
-.aboutus .text .image {
-    width: 350px;
-    height: 236px;
-    border-radius: 40px;
-    transform: skew(10deg);
-    background: url(cat2.jpg);
-    border: 1px solid black;
-    background-size: cover;
-}
-
-.aboutus .text .image:hover {
-    transform: skew(-2deg);
-}
-
-.aboutus .text .backdrop {
-    width: 350px;
-    height: 236px;
-    position: absolute;
-    transform: skew(-2deg);
-    z-index: -1;
-    left: 53.5vw;
-    border-radius: 40px;
-    background: dodgerblue;
-}
-
-/* about us info  */
-
-.info p {
-    width: 50vw;
-    /* margin-top: 10px; */
-    padding: 10px;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    font-style: italic;
-}
-
-.info {
-    display: flex;
-    width: 95vw;
-    justify-content: space-between;
-    height: 35vh;
-    align-items: flex-start;
-}
-
-.aboutus .info .image {
-    width: 350px;
-    height: 236px;
-    border-radius: 40px;
-    transform: skew(10deg);
-    background: url(cat3.jpg);
-    border: 1px solid black;
-    background-size: cover;
-}
-
-.aboutus .info .image:hover {
-    transform: skew(-2deg);
-}
-
-.aboutus .info .backdrop {
-    width: 350px;
-    height: 236px;
-    position: absolute;
-    transform: skew(-2deg);
-    z-index: -1;
-    right: 1vw;
-    border-radius: 40px;
-    background: dodgerblue;
-}
-/* how we work */
-.header2 {
-    width: 90%;
-    margin-left: 5%;
+.aboutus .quote {
+    padding: 60px 30px;
+    background: rgba(100, 100, 100, 0.3);
     border-radius: 10px;
-    box-shadow: 0 0 10px black;
-    box-sizing: border-box;
-    background: linear-gradient(
-        to bottom right,
-        darkturquoise,
-        royalblue,
-        darkblue
-    );
-    color: white;
+    width: 60vw;
+    position: relative;
+    font-size: 30px;
+}
 
+.aboutus .quote .author {
+    position: absolute;
+    right: 0;
+    bottom: 0;
     padding: 10px;
-    justify-content: center;
-    align-items: center;
-    min-height: 50vh;
+    margin: 10px;
+    box-shadow: 0 0 2px white;
+    border-radius: 2px;
 }
-.header2 h3 {
-    text-align: center;
-    font-size: 50px;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    font-stretch: extra-expanded;
-    color: black;
-    font-weight: bolder;
-    font-style: italic;
-    font-variant: small-caps;
-}
-.work {
+
+.aboutus .text {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 50px;
     width: 100%;
-    align-items: center;
 }
-.work p {
-    padding: 10px;
-    margin: 5px;
-    width: 50vw;
-    font-size: 20px;
+
+.aboutus .text p {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20%;
+    font-size: 25px;
+}
+
+.aboutus .text img {
+    width: max(20%, 150px);
+    border-radius: 50%;
+}
+
+.aboutus .text img:hover {
+    border-radius: 20%;
+}
+
+@media screen and (max-width:870px) {
+    .aboutus .quote {
+        font-size: 15px;
+    }
+
+    .aboutus .text p {
+        font-size: 14px;
+    }
+}
+
+/* how we work */
+.how_we_work {
+    margin: 30px 50px;
+    box-shadow: 0 0 5px white;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(125, 125, 125, 0.5);
+}
+
+.how_we_work h3 {
+    font-size: 50px;
+    text-align: center;
+    padding: 20px;
+}
+
+.how_we_work .work {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    font-weight: bold;
-    font-style: italic;
+    list-style-type: none;
 }

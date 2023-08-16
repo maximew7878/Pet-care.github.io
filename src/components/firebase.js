@@ -13,7 +13,7 @@ const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore();
-const storage = getStorage(app);
+const storage = getStorage(app, process.env.storageBucket);
 
 export const reference = (name, url) => {
     return ref(storage, `${name}/${url}`);

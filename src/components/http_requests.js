@@ -1,5 +1,3 @@
-import { reference } from "./firebase";
-import { getDownloadURL, uploadBytes } from "firebase/storage";
 
 export const getStates = async (set) => {
     const res = await fetch("/api/states");
@@ -21,11 +19,20 @@ export const searchSubmit = async (input, set) => {
 
 export const uploadSubmit = async (e, input, value, redirect) => {
     e.preventDefault();
-    const storageRef = reference(input.Name, input.URL.name);
-    const uploadTask = await uploadBytes(storageRef, input.URL);
 
-    input.URL = await getDownloadURL(uploadTask.ref);
+    const res1 = await fetch("/api/storeImage", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ input }),
+    });
 
+    if (res1.status === 400) {
+        alert("failed");
+        return;
+    }
+    input.URL = await res1.json();
     const res = await fetch("/api", {
         method: "POST",
         headers: {
@@ -42,14 +49,16 @@ export const uploadSubmit = async (e, input, value, redirect) => {
 
 export const contactSubmit = async (e, input) => {
     e.preventDefault();
+    console.log(input);
 
     const res = await fetch("/api/contact", {
         method: "POST",
         headers: {
-            "Content/Type": "application/json",
+            "Content-Type": "application/json",
         },
         body: JSON.stringify({ input }),
     });
+
     if (res.status === 400) {
         alert("something went wrong");
     }

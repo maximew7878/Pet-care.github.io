@@ -10,7 +10,7 @@ const handler = async (req, res) => {
         res.status(200).json(ans);
     } else {
         res.status(400).json({ message: "Bad request" });
-    }
+    }   
 };
 
 export default handler;

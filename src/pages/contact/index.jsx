@@ -1,8 +1,10 @@
-import React from "react";
+import { contactSubmit } from "@/components/http_requests";
+import React, { useState } from "react";
 
 const index = () => {
+    const [input, setInput] = useState({ email: "", name: "", message: "" });
     return (
-        <>
+        <div className="contact">
             <div className="header">
                 <h1>
                     We want to Hear From You
@@ -22,27 +24,34 @@ const index = () => {
                 <div className="left"></div>
                 <div className="right">
                     <div className="formbox">
-                        <form action="">
+                        <form onSubmit={(e) => contactSubmit(e, input)}>
                             <p>Email Id</p>
                             <input
                                 type="text"
                                 name="Email"
                                 id=""
                                 placeholder="Work Email"
+                                value={input.email}
+                                onChange={(e) =>
+                                    setInput((t) => {
+                                        return { ...t, email: e.target.value };
+                                    })
+                                }
+                                required
                             />
-                            <p>Firstname</p>
+                            <p>Name</p>
                             <input
                                 type="text"
                                 name="Firstname"
                                 id=""
                                 placeholder="John "
-                            />
-                            <p>Lastname</p>
-                            <input
-                                type="text"
-                                name="Lastname"
-                                id=""
-                                placeholder="Doe"
+                                value={input.name}
+                                onChange={(e) =>
+                                    setInput((t) => {
+                                        return { ...t, name: e.target.value };
+                                    })
+                                }
+                                required
                             />
                             <p>Message</p>
                             <textarea
@@ -51,15 +60,25 @@ const index = () => {
                                 cols="80"
                                 rows="7"
                                 placeholder="Message"
+                                value={input.message}
+                                onChange={(e) =>
+                                    setInput((t) => {
+                                        return {
+                                            ...t,
+                                            message: e.target.value,
+                                        };
+                                    })
+                                }
+                                required
                             ></textarea>
                             <br />
 
-                            <input type="submit" name="" id="" />
+                            <input type="submit" />
                         </form>
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

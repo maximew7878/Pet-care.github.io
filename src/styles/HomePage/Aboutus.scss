@@ -1,0 +1,70 @@
+/* about us  */
+
+.aboutus {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin: 30px 50px;
+}
+
+.aboutus h1 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 60px;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 15px;
+}
+
+.aboutus .quote {
+    padding: 60px 30px;
+    background: rgba(100, 100, 100, 0.3);
+    border-radius: 10px;
+    width: 60vw;
+    position: relative;
+    font-size: 30px;
+}
+
+.aboutus .quote .author {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 0 2px white;
+    border-radius: 2px;
+}
+
+.aboutus .text {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 100%;
+}
+
+.aboutus .text p {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20%;
+    font-size: 25px;
+}
+
+.aboutus .text img {
+    height: auto;
+    width: max(20%, 150px);
+    border-radius: 50%;
+}
+
+.aboutus .text img:hover {
+    border-radius: 20%;
+}
+
+@media screen and (max-width: 870px) {
+    .aboutus .quote {
+        font-size: 15px;
+    }
+
+    .aboutus .text p {
+        font-size: 14px;
+    }
+}

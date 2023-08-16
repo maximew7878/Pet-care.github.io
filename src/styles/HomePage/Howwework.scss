@@ -1,0 +1,22 @@
+/* how we work */
+.how_we_work {
+    margin: 30px 50px;
+    box-shadow: 0 0 5px white;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(125, 125, 125, 0.5);
+}
+
+.how_we_work h3 {
+    font-size: 50px;
+    text-align: center;
+    padding: 20px;
+}
+
+.how_we_work .work {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    list-style-type: none;
+}
